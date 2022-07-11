@@ -57,10 +57,13 @@ require(magrittr)
 # 
 # traits <- merge(traits.carbon, traits.water, traits.nutrients, traits.c.l.n.w)
 # # 
-# traits <- data.frame(TraitFamily = c("Carbon Acquisition", "Water Acquisition","Nutrient Acquisition", "Carbon, Light, Nutrient & Water Acquisition"), 
-#                         TraitIDs =  c("3117,185,4,45,56,1809,12,146,151", "45,4,56,1080,3468,719", "4,56,1080,1975,14,15", 
-#                                       "3117,185,45,1809,12,146,151,4,56,1080,3468,719,1975,14,15"))
-# write.csv(traits, "./inst/extdata/TraitFamilies.csv", row.names = FALSE)
+traits <- data.frame(TraitFamily = c("Carbon Acquisition", "Water Acquisition","Nutrient Acquisition", "Carbon, Light, Nutrient & Water Acquisition"),
+                        TraitIDs =  c("3117,185,4,45,56,1809,12,146,151", "45,4,56,1080,3468,719", "4,56,1080,1975,14,15",
+                                      "3117,185,45,1809,12,146,151,4,56,1080,3468,719,1975,14,15"))
+row.names(traits) <- traits[,1]
+traits$TraitFamily <- NULL
+
+ write.csv(traits, "./inst/extdata/TraitFamilies.csv", row.names = FALSE)
 
 # Define server logic to summarize and view selected dataset ----
 shinyServer(function(input, output) {
@@ -69,9 +72,9 @@ shinyServer(function(input, output) {
     # # bring in traits
     traits <- read.csv("https://raw.githubusercontent.com/atkinsjeff/TRYqa/main/inst/extdata/TraitFamilies.csv")
     
-    row.names(traits) <- traits[,1]
-    traits$TraitFamily <- NULL
-    # 
+    # row.names(traits) <- traits[,1]
+    # traits$TraitFamily <- NULL
+    # # 
     # # Trait Families
     # vec.carbon <- c(3117,185,4,45,56,1809,12,146,151)
     # vec.water <- c(45,4,56,1080,3468,719)
