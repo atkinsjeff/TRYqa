@@ -1,7 +1,7 @@
 # ####
-# require(data.table)
-# require(magrittr)
-# 
+require(data.table)
+require(magrittr)
+
 # # server.r
 # options(shiny.maxRequestSize= 1000*1024^2)
 # options(shiny.deprecation.messages=FALSE)
@@ -56,19 +56,21 @@
 # traits.c.l.n.w$TraitFamily <- "Carbon, Light, Nutrient & Water Acquisition"
 # 
 # traits <- merge(traits.carbon, traits.water, traits.nutrients, traits.c.l.n.w)
-# 
-traits <- data.frame(TraitFamily = c("Carbon Acquisition", "Water Acquisition","Nutrient Acquisition", "Carbon, Light, Nutrient & Water Acquisition"), 
-                        TraitIDs =  c("3117,185,4,45,56,1809,12,146,151", "45,4,56,1080,3468,719", "4,56,1080,1975,14,15", 
-                                      "3117,185,45,1809,12,146,151,4,56,1080,3468,719,1975,14,15"))
-write.csv(traits, "./inst/extdata/trait_families.csv")
+# # 
+# traits <- data.frame(TraitFamily = c("Carbon Acquisition", "Water Acquisition","Nutrient Acquisition", "Carbon, Light, Nutrient & Water Acquisition"), 
+#                         TraitIDs =  c("3117,185,4,45,56,1809,12,146,151", "45,4,56,1080,3468,719", "4,56,1080,1975,14,15", 
+#                                       "3117,185,45,1809,12,146,151,4,56,1080,3468,719,1975,14,15"))
+# write.csv(traits, "./inst/extdata/TraitFamilies.csv", row.names = FALSE)
 
 # Define server logic to summarize and view selected dataset ----
 shinyServer(function(input, output) {
     
     
     # # bring in traits
-    # trait.list <- data.table::fread("https://raw.githubusercontent.com/atkinsjeff/TRYqa/main/inst/extdata/TryTraits.txt", skip = 3, select = c("TraitID", "Trait"))
-    # 
+    traits <- read.csv("https://raw.githubusercontent.com/atkinsjeff/TRYqa/main/inst/extdata/TraitFamilies.csv")
+    
+    row.names(traits) <- traits[,1]
+    traits$TraitFamily <- NULL
     # 
     # # Trait Families
     # vec.carbon <- c(3117,185,4,45,56,1809,12,146,151)
@@ -99,10 +101,10 @@ shinyServer(function(input, output) {
     # choose columns to display
         result <- reactive({
             traits %>%
-                dplyr::filter(TraitFamily == input$traitset) %>%
+                dplyr::filter(row.names(traits) == input$traitset) %>%
                 select(TraitIDs)
         })
-        output$result <- renderText(result)
+        output$result <- renderPrint(result()) 
 
         output$summary <- renderPrint({
             summary(cars)

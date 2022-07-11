@@ -17,10 +17,10 @@ shinyUI(fluidPage(
                         sidebarLayout(
                             sidebarPanel(
                                 selectInput("traitset", "Choose a trait set:",
-                                            choices = c("Carbon Acquisition" = "traits.carbon", 
-                                                        "Nutrient Acquisition" = "traits.nutrients", 
-                                                        "Water Acquisition" = "traits.water", 
-                                                        "Carbon, Light, Nutrient & Water Acquisition" = "traits.c.l.n.w"),
+                                            choices = c("Carbon Acquisition", 
+                                                        "Nutrient Acquisition", 
+                                                        "Water Acquisition", 
+                                                        "Carbon, Light, Nutrient & Water Acquisition"), selected = "Carbon Acquisition",
                                             ),
                                 
                                 # # Input: Specify the number of observations to view ----
