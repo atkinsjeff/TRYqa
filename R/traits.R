@@ -13,9 +13,14 @@ vec.nutrients <- c(4,56,1080,1975,14,15)
 vec.c.l.n.w <- c(3117,185,45,1809,12,146,151,4,56,1080,3468,719,1975,14,15)
 
 # filter traits 
-traits.carbon <- subset(trait.list, TraitID %in% vec.carbon)
+traits.carbon <- as.data.frame(subset(trait.list, TraitID %in% vec.carbon))
 traits.water <- subset(trait.list, TraitID %in% vec.water)
 traits.nutrients <- subset(trait.list, TraitID %in% vec.nutrients)
 traits.c.l.n.w <- subset(trait.list, TraitID %in% vec.c.l.n.w)
+
+traits.carbon$TraitFamily <- "Carbon Acquisition"
+traits.water$TraitFamily <- "Water Acquisition"
+traits.nutrients$TraitFamily <- "Nutrient Acquisition"
+traits.c.l.n.w$TraitFamily <- "Carbon, Light, Nutrient & Water Acquisition"
 
 

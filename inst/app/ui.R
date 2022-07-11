@@ -17,10 +17,10 @@ shinyUI(fluidPage(
                         sidebarLayout(
                             sidebarPanel(
                                 selectInput("traitset", "Choose a trait set:",
-                                            choices = c("Carbon Acquistion" = "traits.carbon", 
+                                            choices = c("Carbon Acquisition" = "traits.carbon", 
                                                         "Nutrient Acquisition" = "traits.nutrients", 
-                                                        "Water Acquistion" = "traits.water", 
-                                                        "Carbon, Light, Nutrient & Water Acqusition" = "traits.c.l.n.w"),
+                                                        "Water Acquisition" = "traits.water", 
+                                                        "Carbon, Light, Nutrient & Water Acquisition" = "traits.c.l.n.w"),
                                             ),
                                 
                                 # # Input: Specify the number of observations to view ----
@@ -30,7 +30,7 @@ shinyUI(fluidPage(
                                 helpText("Note: Output will be formatted for the TRY database."),
                             ),
                             mainPanel(
-                                plotOutput("plot")
+                                textOutput("result")
                             )
                         )
                ),
