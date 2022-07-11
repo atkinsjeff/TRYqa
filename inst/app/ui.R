@@ -36,7 +36,7 @@ shinyUI(fluidPage(
                ),
                
                tabPanel("Species Q&A",
-                        textAreaInput("species", "Species list (seperated by commasa)", rows = 6)
+                        textAreaInput("species", "Species list (seperated by commas)", rows = 6)
                         #verbatimTextOutput("summary")
                ),
                
