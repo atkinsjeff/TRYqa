@@ -24,3 +24,5 @@ Imports:
     magrittr,
     utils,
     vroom
+Depends: 
+    R (>= 2.10)
