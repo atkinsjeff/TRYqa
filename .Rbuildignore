@@ -4,3 +4,4 @@
 ^\./R/sandbox\.R$
 ^\./inst/sandbox$
 ^data-raw$
+^README\.Rmd$
