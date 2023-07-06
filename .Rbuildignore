@@ -1,0 +1,6 @@
+^LICENSE\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\./R/sandbox\.R$
+^\./inst/sandbox$
+^data-raw$
