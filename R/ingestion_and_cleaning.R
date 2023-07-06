@@ -1,9 +1,5 @@
 #' This file containts ingestion and formatting scripts
 
-#' Process single PCL transects.
-#'
-#' \code{read.try} imports raw TRY data into the R environment.
-#'
 #' This function imports raw TRY data
 #'
 #' \code{read.try} brings in the data
@@ -21,11 +17,7 @@
 #'
 #'
 #' @examples
-#'
-#' # Run process complete PCL transect without storing to disk
-#' data.path <- system.file("extdata", "try_sample_data.txt", package = "TRYqa")
-#'
-#' read.try(data.path)
+#' read.try(system.file("extdata", "try_sample_data.txt", package = "TRYqa"))
 #'
 read.try <- function(data.path){
   # make note to automatically remove duplicates with OrigObsDataID
@@ -47,7 +39,7 @@ read.try <- function(data.path){
                          "ErrorRisk")
 
   # bring in additional information from TraitID
-  df.traits <- utils::read.csv("./inst/extdata/TraitID_lookup_table.csv")
+  df.traits <- utils::read.csv(system.file("extdata", "TraitID_lookup_table.csv", package = "TRYqa"))
 
   # merge columns to give full names to column based on TraitID
   dataset <- merge(dataset, df.traits)

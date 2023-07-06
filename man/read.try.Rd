@@ -3,7 +3,7 @@
 \name{read.try}
 \alias{read.try}
 \title{This file containts ingestion and formatting scripts
-Process single PCL transects.}
+This function imports raw TRY data}
 \usage{
 read.try(data.path)
 
@@ -22,23 +22,15 @@ creates a data frame containing the columns "DatasetID", "SpeciesName",
 "StdValue", "StdUnit", "ErrorRisk"
 }
 \description{
-\code{read.try} imports raw TRY data into the R environment.
+\code{read.try} brings in the data
 
 \code{read.try} imports raw TRY data into the R environment.
 }
 \details{
 This function imports raw TRY data
-
-\code{read.try} brings in the data
-
-This function imports raw TRY data
 }
 \examples{
-
-# Run process complete PCL transect without storing to disk
-data.path <- system.file("extdata", "try_sample_data.txt", package = "TRYqa")
-
-read.try(data.path)
+read.try(system.file("extdata", "try_sample_data.txt", package = "TRYqa"))
 
 
 # Run process complete PCL transect without storing to disk
