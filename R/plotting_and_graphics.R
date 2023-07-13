@@ -1,43 +1,4 @@
-# Contains plotting and formatting functions
 
-### FIRST PLOT FUNCTION:  Community distribution
-
-
-
-#' Read in TRY data
-#'
-#' \code{theme_try} provides a plotting theme for TRY data
-#'
-#' A plotting theme to be added to a `ggplot2` graph and base theme used in the
-#' `TRYqa` package plotting functions
-#'
-#' @keywords plot theme
-#' @export
-#'
-#'
-theme_try <- function() {
-  ggplot2::theme(
-    # add border 1)
-    panel.border = ggplot2::element_rect(colour = "black", fill = NA, size = 0.5),
-    # color background 2)
-    #panel.background = element_rect(fill = "white"),
-    # modify grid 3)
-    panel.grid.major.x = element_line(colour = "#333333", linetype = 3, size = 0.5),
-    panel.grid.minor.x = element_line(colour = "darkgrey", linetype = 3, size = 0.5),
-    panel.grid.major.y = element_line(colour = "#333333", linetype = 3, size = 0.5),
-    panel.grid.minor.y = element_line(colour = "darkgrey", linetype = 3, size = 0.5),
-    # modify text, axis and colour 4) and 5)
-    axis.text = element_text(colour = "black", family = grDevices::windowsFont("TT Times New Roman")),
-    axis.title = element_text(colour = "black", family = grDevices::windowsFont("TT Times New Roman")),
-    axis.ticks = element_line(colour = "black"),
-    axis.ticks.length=unit(-0.1, "cm"),
-    # legend at the bottom 6)
-    legend.position = "bottom",
-    strip.text.x = element_text(size = 10, color = "black",  grDevices::windowsFont("TT Times New Roman")),
-    strip.text.y = element_text(size = 10, color = "black",  grDevices::windowsFont("TT Times New Roman")),
-    strip.background = element_blank()
-  )
-}
 
 
 
@@ -77,6 +38,31 @@ plot.species <- function(df, trait){
   # add median line
   trait.median <- stats::median(df.trait$StdValue)
   # flipped boxplot
+
+  theme_try <- function() {
+    ggplot2::theme(
+      # add border 1)
+      panel.border = ggplot2::element_rect(colour = "black", fill = NA, size = 0.5),
+      # color background 2)
+      #panel.background = element_rect(fill = "white"),
+      # modify grid 3)
+      panel.grid.major.x = element_line(colour = "#333333", linetype = 3, size = 0.5),
+      panel.grid.minor.x = element_line(colour = "darkgrey", linetype = 3, size = 0.5),
+      panel.grid.major.y = element_line(colour = "#333333", linetype = 3, size = 0.5),
+      panel.grid.minor.y = element_line(colour = "darkgrey", linetype = 3, size = 0.5),
+      # modify text, axis and colour 4) and 5)
+      axis.text = element_text(colour = "black", family = grDevices::windowsFont("TT Times New Roman")),
+      axis.title = element_text(colour = "black", family = grDevices::windowsFont("TT Times New Roman")),
+      axis.ticks = element_line(colour = "black"),
+      axis.ticks.length=unit(-0.1, "cm"),
+      # legend at the bottom 6)
+      legend.position = "bottom",
+      strip.text.x = element_text(size = 10, color = "black",  grDevices::windowsFont("TT Times New Roman")),
+      strip.text.y = element_text(size = 10, color = "black",  grDevices::windowsFont("TT Times New Roman")),
+      strip.background = element_blank()
+    )
+  }
+
 
   ggplot2::ggplot(df.trait, ggplot2::aes(x = SpeciesName, y = StdValue))+
     ggplot2::geom_boxplot()+
@@ -141,6 +127,31 @@ plot.traits <- function(df, species.list, trait.list, group){
 
   print("You have selected the following traits:")
   print(unique(df.traits$Trait))
+
+  # try theme
+  theme_try <- function() {
+    ggplot2::theme(
+      # add border 1)
+      panel.border = ggplot2::element_rect(colour = "black", fill = NA, size = 0.5),
+      # color background 2)
+      #panel.background = element_rect(fill = "white"),
+      # modify grid 3)
+      panel.grid.major.x = element_line(colour = "#333333", linetype = 3, size = 0.5),
+      panel.grid.minor.x = element_line(colour = "darkgrey", linetype = 3, size = 0.5),
+      panel.grid.major.y = element_line(colour = "#333333", linetype = 3, size = 0.5),
+      panel.grid.minor.y = element_line(colour = "darkgrey", linetype = 3, size = 0.5),
+      # modify text, axis and colour 4) and 5)
+      axis.text = element_text(colour = "black", family = grDevices::windowsFont("TT Times New Roman")),
+      axis.title = element_text(colour = "black", family = grDevices::windowsFont("TT Times New Roman")),
+      axis.ticks = element_line(colour = "black"),
+      axis.ticks.length=unit(-0.1, "cm"),
+      # legend at the bottom 6)
+      legend.position = "bottom",
+      strip.text.x = element_text(size = 10, color = "black",  grDevices::windowsFont("TT Times New Roman")),
+      strip.text.y = element_text(size = 10, color = "black",  grDevices::windowsFont("TT Times New Roman")),
+      strip.background = element_blank()
+    )
+  }
 
 
   # make label

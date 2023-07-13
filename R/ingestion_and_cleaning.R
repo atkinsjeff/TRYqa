@@ -42,7 +42,7 @@ read.try <- function(data.path){
   #df.traits <- utils::read.csv(system.file("extdata", "TraitID_lookup_table.csv", package = "TRYqa"))
 
   # merge columns to give full names to column based on TraitID
-
+  df.traits <- TRYqa:::df.traits
   dataset <- merge(dataset, df.traits)
 
   return(dataset)
