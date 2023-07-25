@@ -41,7 +41,6 @@ read.try <- function(data.path){
                          "ErrorRisk")
 
   # bring in additional information from TraitID
-  #df.traits <- utils::read.csv(system.file("extdata", "TraitID_lookup_table.csv", package = "TRYqa"))
 
   # merge columns to give full names to column based on TraitID
   df.traits <- TRYqa:::df.traits
