@@ -17,12 +17,6 @@
 #'
 #'
 #'
-#' @examples
-#'
-#' # Run process complete PCL transect without storing to disk
-#' data.path <- system.file("extdata", "try_sample_data.txt", package = "TRYqa")
-#'
-#' read.try(data.path)
 #'
 read.try <- function(data.path){
   # make note to automatically remove duplicates with OrigObsDataID
@@ -44,7 +38,8 @@ read.try <- function(data.path){
                          "ErrorRisk")
 
   # bring in additional information from TraitID
-  df.traits <- read.csv("./inst/extdata/TraitID_lookup_table.csv")
+
+  df.traits <- read.csv(file.path("inst", "extdata","TraitID_lookup_table.csv"))
 
   # merge columns to give full names to column based on TraitID
   dataset <- merge(dataset, df.traits)

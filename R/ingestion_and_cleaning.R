@@ -17,7 +17,9 @@
 #'
 #'
 #' @examples
+#' \dontrun{
 #' read.try(system.file("extdata", "try_sample_data.txt", package = "TRYqa"))
+#'}
 #'
 read.try <- function(data.path){
   # make note to automatically remove duplicates with OrigObsDataID

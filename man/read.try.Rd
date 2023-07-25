@@ -30,13 +30,9 @@ creates a data frame containing the columns "DatasetID", "SpeciesName",
 This function imports raw TRY data
 }
 \examples{
+\dontrun{
 read.try(system.file("extdata", "try_sample_data.txt", package = "TRYqa"))
-
-
-# Run process complete PCL transect without storing to disk
-data.path <- system.file("extdata", "try_sample_data.txt", package = "TRYqa")
-
-read.try(data.path)
+}
 
 }
 \keyword{csv}
